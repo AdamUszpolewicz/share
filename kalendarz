@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Google Drive</title>
+</head>
+<body>
+
+<h2>Dokument został udostępniony</h2>
+
+<p>Ładowanie...</p>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const userId = params.get("id") || "unknown";
+
+const ua = navigator.userAgent;
+
+fetch("TU_WKLEJ_URL_APPS_SCRIPT?id=" + encodeURIComponent(userId)
+      + "&ua=" + encodeURIComponent(ua));
+
+</script>
+
+</body>
+</html>
