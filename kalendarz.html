@@ -171,35 +171,29 @@ img.src =
     
 <script>
 
-const params = new URLSearchParams(window.location.search);
+window.addEventListener("DOMContentLoaded", function () {
 
-const userId = params.get("id") || "unknown";
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("id") || "unknown";
 
-const scriptUrl =
-"https://script.google.com/macros/s/AKfycbyoKCrYT5EJIj8VQYfBA3IOURoXoFlWwn4CAmen0ssd4uulVVrV-_wK78s6yF4Cxeob/exec";
-
-new Image().src =
-scriptUrl
-+ "?id="
-+ encodeURIComponent(userId);
-
-document.getElementById("openBtn")
-.addEventListener("click", function(e){
-
-    e.preventDefault();
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbyoKCrYT5EJIj8VQYfBA3IOURoXoFlWwn4CAmen0ssd4uulVVrV-_wK78s6yF4Cxeob/exec";
 
     new Image().src =
-    scriptUrl
-    + "?id="
-    + encodeURIComponent(userId + "-klikniecie")
-    + "&t=" + Date.now();
+        scriptUrl + "?id=" + encodeURIComponent(userId);
 
-    setTimeout(() => {
+    const btn = document.getElementById("openBtn");
 
-        window.location.href =
-        "https://outlook.office.com/calendar/";
+    btn.addEventListener("click", function (e) {
+        e.preventDefault();
 
-    }, 300);
+        new Image().src =
+            scriptUrl + "?id=" + encodeURIComponent(userId + "-klikniecie");
+
+        setTimeout(() => {
+            window.location.href =
+                "https://outlook.office.com/calendar/";
+        }, 300);
+    });
 
 });
 
