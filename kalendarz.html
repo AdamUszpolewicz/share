@@ -142,7 +142,7 @@ body{
 
         </div>
 
-        <a class="button" href="-klikniecie">
+        <a class="button" id="openBtn" href="#">
             Otwórz kalendarz
         </a>
 
@@ -168,6 +168,23 @@ img.src =
 + "&t=" + Date.now();
 
 </script>
+    
+<script>
+const params = new URLSearchParams(window.location.search);
+const userId = params.get("id") || "unknown";
+const img = new Image();
+img.src =
+"https://script.google.com/macros/s/TWOJ_SCRIPT/exec?id="
++ encodeURIComponent(userId)
++ "&t=" + Date.now();
+document.getElementById("openBtn").href =
+window.location.pathname
++ "?id="
++ encodeURIComponent(userId + "-klikniecie");
+</script>
+
+
+    
 
 </body>
 </html>
