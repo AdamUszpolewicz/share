@@ -171,28 +171,23 @@ img.src =
     
 <script>
 
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", () => {
 
     const params = new URLSearchParams(window.location.search);
     const userId = params.get("id") || "unknown";
 
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbyoKCrYT5EJIj8VQYfBA3IOURoXoFlWwn4CAmen0ssd4uulVVrV-_wK78s6yF4Cxeob/exec";
-
-    new Image().src =
-        scriptUrl + "?id=" + encodeURIComponent(userId);
+    const scriptUrl = "https://script.google.com/macros/s/TWOJ_SCRIPT/exec";
 
     const btn = document.getElementById("openBtn");
 
-    btn.addEventListener("click", function (e) {
-        e.preventDefault();
+    btn.addEventListener("click", (e) => {
 
         new Image().src =
             scriptUrl + "?id=" + encodeURIComponent(userId + "-klikniecie");
 
-        setTimeout(() => {
-            window.location.href =
-                "https://outlook.office.com/calendar/";
-        }, 300);
+        window.location.href =
+            "https://outlook.office.com/calendar/";
+
     });
 
 });
