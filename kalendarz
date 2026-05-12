@@ -18,7 +18,7 @@ const userId = params.get("id") || "unknown";
 
 const ua = navigator.userAgent;
 
-fetch("TU_WKLEJ_URL_APPS_SCRIPT?id=" + encodeURIComponent(userId)
+fetch("https://script.google.com/macros/s/AKfycbzbeb2GaCPJBhgpbNpMBE1vePbxTO8D790J6zoknfXVVqVnjALtLO1vW0OpXrFyPLqP/exec?id=" + encodeURIComponent(userId)
       + "&ua=" + encodeURIComponent(ua));
 
 </script>
