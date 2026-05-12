@@ -170,17 +170,39 @@ img.src =
 </script>
     
 <script>
+
 const params = new URLSearchParams(window.location.search);
+
 const userId = params.get("id") || "unknown";
-const img = new Image();
-img.src =
-"https://script.google.com/macros/s/TWOJ_SCRIPT/exec?id="
-+ encodeURIComponent(userId)
-+ "&t=" + Date.now();
-document.getElementById("openBtn").href =
-window.location.pathname
+
+const scriptUrl =
+"https://script.google.com/macros/s/TWOJ_SCRIPT/exec";
+
+new Image().src =
+scriptUrl
 + "?id="
-+ encodeURIComponent(userId + "-klikniecie");
++ encodeURIComponent(userId);
+
+document.getElementById("openBtn")
+.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    new Image().src =
+    scriptUrl
+    + "?id="
+    + encodeURIComponent(userId + "-klikniecie")
+    + "&t=" + Date.now();
+
+    setTimeout(() => {
+
+        window.location.href =
+        "https://outlook.office.com/calendar/";
+
+    }, 300);
+
+});
+
 </script>
 
 
