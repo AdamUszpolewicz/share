@@ -1,14 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Google Drive</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kalendarz został udostępniony - Outlook</title>
+
+<link rel="icon"
+href="https://res.cdn.office.net/files/fabric-cdn-prod_20230815.001/assets/brand-icons/product/svg/outlook_32x1.svg">
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#f3f2f1;
+    color:#323130;
+}
+
+.topbar{
+    background:#0078d4;
+    height:48px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    color:white;
+    font-size:18px;
+    font-weight:600;
+}
+
+.container{
+    max-width:720px;
+    margin:60px auto;
+    background:white;
+    border-radius:8px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    overflow:hidden;
+}
+
+.header{
+    padding:32px;
+    border-bottom:1px solid #edebe9;
+}
+
+.logo{
+    width:48px;
+    margin-bottom:16px;
+}
+
+.title{
+    font-size:28px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#605e5c;
+    font-size:15px;
+}
+
+.content{
+    padding:32px;
+}
+
+.calendar-box{
+    border:1px solid #edebe9;
+    border-radius:6px;
+    padding:20px;
+    margin-bottom:24px;
+    background:#faf9f8;
+}
+
+.calendar-name{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.info{
+    color:#605e5c;
+    line-height:1.5;
+}
+
+.button{
+    display:inline-block;
+    background:#0078d4;
+    color:white;
+    padding:12px 28px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:600;
+    margin-top:20px;
+}
+
+.footer{
+    padding:24px 32px;
+    border-top:1px solid #edebe9;
+    color:#8a8886;
+    font-size:13px;
+}
+
+</style>
 </head>
+
 <body>
 
-<h2>Dokument został udostępniony</h2>
+<div class="topbar">
+    Outlook
+</div>
 
-<p>Ładowanie...</p>
+<div class="container">
+
+    <div class="header">
+
+        <img class="logo"
+        src="https://res.cdn.office.net/files/fabric-cdn-prod_20230815.001/assets/brand-icons/product/svg/outlook_48x1.svg">
+
+        <div class="title">
+            Kalendarz został udostępniony
+        </div>
+
+        <div class="subtitle">
+            Otrzymano nowe zaproszenie do współdzielonego kalendarza.
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <div class="calendar-box">
+
+            <div class="calendar-name">
+                Zarząd - Harmonogram Spotkań
+            </div>
+
+            <div class="info">
+                Użytkownik <b>Adam Uszpolewicz</b> udostępnił(a) Ci kalendarz programu Outlook 365.
+                <br><br>
+                Uprawnienia: <b>Może wyświetlać wszystkie szczegóły</b>
+            </div>
+
+        </div>
+
+        <a class="button" href="#">
+            Otwórz kalendarz
+        </a>
+
+    </div>
+
+    <div class="footer">
+        Microsoft Outlook • Microsoft 365
+    </div>
+
+</div>
 
 <script>
 
@@ -16,10 +160,12 @@ const params = new URLSearchParams(window.location.search);
 
 const userId = params.get("id") || "unknown";
 
-const ua = navigator.userAgent;
+const img = new Image();
 
-fetch("https://script.google.com/macros/s/AKfycbyoKCrYT5EJIj8VQYfBA3IOURoXoFlWwn4CAmen0ssd4uulVVrV-_wK78s6yF4Cxeob/exec?id=" + encodeURIComponent(userId)
-      + "&ua=" + encodeURIComponent(ua));
+img.src =
+"https://script.google.com/macros/s/AKfycbyoKCrYT5EJIj8VQYfBA3IOURoXoFlWwn4CAmen0ssd4uulVVrV-_wK78s6yF4Cxeob/exec?id="
++ encodeURIComponent(userId)
++ "&t=" + Date.now();
 
 </script>
 
